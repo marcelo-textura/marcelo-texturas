@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- A linha abaixo torna o site 100% responsivo para celulares -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Skins de Caminhões e Carros</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    header {
+      margin-bottom: 20px;
+      padding: 10px 0;
+    }
+
+    h1 {
+      color: #f39c12;
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+    }
+
+    p.subtitulo {
+      color: #aaaaaa;
+      font-size: 0.95rem;
+    }
+
+    /* Layout responsivo para telas pequenas e grandes */
+    .card-container {
+      display: grid;
+      grid-template-columns: 1fr; /* Em celulares, mostra 1 card por linha */
+      gap: 15px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Se a tela for maior (computadores/tablets), mostra 2 por linha */
+    @media (min-width: 600px) {
+      .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      }
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #2d2d2d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9; /* Mantém a proporção ideal de imagem de skins */
+      border-radius: 8px;
+      object-fit: cover;
+      background-color: #2a2a2a;
+    }
+
+    .card-content {
+      padding: 12px 5px 5px 5px;
+      text-align: left;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #bbbbbb;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    /* Botão adaptado para toque no celular (área clicável maior) */
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      background: #e67e22;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.2s;
+    }
+
+    .btn:active {
+      background: #d35400;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>🚚 Skins de Caminhões e Carros 🚗</h1>
+    <p class="subtitulo">Baixe skins exclusivas para seus jogos favoritos!</p>
+  </header>
+
+  <main class="card-container">
+    
+    <!-- CARD DE SKIN 1 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/600x337/333333/ffffff?text=Skins+Caminhao" alt="Skin Caminhão">
+      <div class="card-content">
+        <h3>Skin Caminhão Pintura Especial</h3>
+        <p>Skin detalhada e pronta para instalar no seu jogo.</p>
+        <a href="#" class="btn">Baixar Skin</a>
+      </div>
+    </div>
+
+    <!-- CARD DE SKIN 2 -->
+    <div class="card">
+      <img src="https://via.placeholder.com/600x337/333333/ffffff?text=Skins+Carro" alt="Skin Carro">
+      <div class="card-content">
+        <h3>Skin Carro Esportivo</h3>
+        <p>Visual esportivo personalizado em alta resolução.</p>
+        <a href="#" class="btn">Baixar Skin</a>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
