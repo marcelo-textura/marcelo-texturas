@@ -15,35 +15,13 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       background-color: #121212;
       color: #ffffff;
+      padding-top: 10px;
       padding-bottom: 30px;
     }
 
     .gto-section {
       max-width: 800px;
       margin: 0 auto;
-    }
-
-    /* CAPA NO TOPO */
-    .banner-header {
-      width: 100%;
-      height: 150px;
-      overflow: hidden;
-      background-color: #1e1e1e;
-      border-bottom: 2px solid #333;
-    }
-
-    .banner-header img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-
-    @media (min-width: 600px) {
-      .banner-header {
-        height: 220px;
-      }
     }
 
     .header-title {
@@ -88,13 +66,15 @@
       justify-content: space-between;
     }
 
+    /* IMAGEM DA SKIN ENQUADRADA PERFEITAMENTE SEM CORTAR */
     .card img {
       width: 100%;
       height: auto;
-      aspect-ratio: 16 / 9;
+      max-height: 230px;
       border-radius: 8px;
-      object-fit: cover;
-      background-color: #2a2a2a;
+      object-fit: contain; /* Mostra a imagem inteira sem cortar nada */
+      background-color: #181818;
+      display: block;
     }
 
     .card-content {
@@ -137,12 +117,7 @@
 
   <section class="gto-section">
 
-    <!-- BANNER DE CAPA -->
-    <div class="banner-header">
-      <img src="capa.png" alt="Capa Skins Global Truck Online">
-    </div>
-
-    <!-- TÍTULO PRINCIPAL -->
+    <!-- TÍTULO PRINCIPAL (SEM O TEXTO/CAPA QUEBRADA DO TOPO) -->
     <div class="header-title">
       <h1>🚚 Skins Global Truck Online 🚗</h1>
       <p class="subtitulo">Baixe as melhores skins exclusivas para o seu jogo!</p>
@@ -157,16 +132,6 @@
         <div class="card-content">
           <h3>Skins Global Truck Online</h3>
           <p>Skin detalhada e pronta para instalar no seu jogo.</p>
-          <a href="#" class="btn">Baixar Skin</a>
-        </div>
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="card">
-        <img src="https://via.placeholder.com/600x337/333333/ffffff?text=Skin+Carro" alt="Skin Carro">
-        <div class="card-content">
-          <h3>Skin Carro Esportivo</h3>
-          <p>Visual esportivo personalizado em alta resolução.</p>
           <a href="#" class="btn">Baixar Skin</a>
         </div>
       </div>
