@@ -25,7 +25,7 @@
       padding: 0 15px;
     }
 
-    /* BOTÃO DE VOLTAR */
+    /* BOTÃO VOLTAR */
     .btn-voltar {
       display: inline-block;
       color: #f39c12;
@@ -51,16 +51,16 @@
       font-size: 0.9rem;
     }
 
-    /* GALERIA DE SKINS */
+    /* GALERIA DE CARDS */
     .card-container {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 15px;
+      gap: 20px;
     }
 
     @media (min-width: 600px) {
       .card-container {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       }
     }
 
@@ -75,13 +75,68 @@
       justify-content: space-between;
     }
 
-    .card img {
+    /* ESTRUTURA DO CARROSSEL ANIMADO */
+    .carousel-wrapper {
+      position: relative;
       width: 100%;
-      height: auto;
-      aspect-ratio: 1 / 1;
       border-radius: 8px;
+      overflow: hidden;
+      background-color: #181818;
+    }
+
+    .carousel-slides {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      width: 100%;
+    }
+
+    .carousel-slides img {
+      width: 100%;
+      flex-shrink: 0;
+      aspect-ratio: 1 / 1;
       object-fit: cover;
       display: block;
+    }
+
+    /* CONTROLES DO CARROSSEL */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: #ffffff;
+      border: none;
+      font-size: 1.2rem;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      user-select: none;
+      z-index: 2;
+    }
+
+    .carousel-btn.prev { left: 8px; }
+    .carousel-btn.next { right: 8px; }
+
+    .carousel-indicators {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 2;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 50%;
+      transition: background-color 0.3s;
+    }
+
+    .dot.active {
+      background-color: #f39c12;
     }
 
     .card-content {
@@ -98,11 +153,25 @@
     .card p {
       font-size: 0.85rem;
       color: #bbbbbb;
-      margin-bottom: 15px;
+      margin-bottom: 10px;
       line-height: 1.3;
     }
 
-    .btn {
+    /* BOTÃO PEQUENO VER MAIS */
+    .btn-ver-mais {
+      display: inline-block;
+      color: #f39c12;
+      font-size: 0.85rem;
+      font-weight: bold;
+      text-decoration: none;
+      margin-bottom: 15px;
+    }
+
+    .btn-ver-mais:hover {
+      text-decoration: underline;
+    }
+
+    .btn-baixar {
       display: block;
       width: 100%;
       padding: 12px 0;
@@ -115,7 +184,7 @@
       font-size: 1rem;
     }
 
-    .btn:active {
+    .btn-baixar:active {
       background: #d35400;
     }
   </style>
@@ -133,31 +202,65 @@
 
     <main class="card-container">
       
-      <!-- SKIN 1 -->
+      <!-- CARD DE SKIN COM CARROSSEL ANIMADO -->
       <div class="card">
-        <img src="file_00000000b0b481f4a3aefd4e65ee3799.png" alt="Skin Scania Amarela">
-        <div class="card-content">
-          <h3>Skin Scania Amarela GTO</h3>
-          <p>Pintura amarela detalhada em alta resolução para Global Truck Online.</p>
-          <a href="#" class="btn">Baixar Skin</a>
+        
+        <div class="carousel-wrapper" id="carousel-1">
+          <div class="carousel-slides">
+            <!-- Imagem 1 principal -->
+            <img src="file_00000000b0b481f4a3aefd4e65ee3799.png" alt="Skin Guarda Municipal Aguaí - Foto 1">
+            <!-- Imagem 2 (adicione fotos extras no futuro) -->
+            <img src="file_00000000b0b481f4a3aefd4e65ee3799.png" alt="Skin Guarda Municipal Aguaí - Foto 2">
+          </div>
+          
+          <button class="carousel-btn prev" onclick="moveSlide('carousel-1', -1)">&#10094;</button>
+          <button class="carousel-btn next" onclick="moveSlide('carousel-1', 1)">&#10095;</button>
+          
+          <div class="carousel-indicators">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
         </div>
-      </div>
 
-      <!-- SKIN 2 (EXEMPLO PARA QUANDO TIVER MAIS SKINS) -->
-      <!--
-      <div class="card">
-        <img src="NOME_DA_SUA_SKIN_2.png" alt="Skin 2">
         <div class="card-content">
-          <h3>Skin Nome do Caminhão</h3>
-          <p>Descrição da skin.</p>
-          <a href="#" class="btn">Baixar Skin</a>
+          <h3>Skin Guarda Municipal Aguaí</h3>
+          <p>Pintura detalhada da Guarda Municipal de Aguaí em alta resolução para caminhonete no Global Truck Online.</p>
+          
+          <!-- LINK PEQUENO VER MAIS PARA A PÁGINA ESPECÍFICA -->
+          <a href="skin-guarda-municipal.html" class="btn-ver-mais">Ver mais detalhes →</a>
+          
+          <a href="#" class="btn-baixar">Baixar Skin</a>
         </div>
       </div>
-      -->
 
     </main>
 
   </div>
+
+  <!-- SCRIPT PARA O FUNCIONAMENTO DO CARROSSEL ANIMADO -->
+  <script>
+    const carouselStates = {};
+
+    function moveSlide(carouselId, direction) {
+      const carousel = document.getElementById(carouselId);
+      const slidesContainer = carousel.querySelector('.carousel-slides');
+      const totalSlides = slidesContainer.children.length;
+      const dots = carousel.querySelectorAll('.dot');
+
+      if (!(carouselId in carouselStates)) {
+        carouselStates[carouselId] = 0;
+      }
+
+      carouselStates[carouselId] = (carouselStates[carouselId] + direction + totalSlides) % totalSlides;
+      const currentIndex = carouselStates[carouselId];
+
+      slidesContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      dots.forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === currentIndex);
+      });
+    }
+  </script>
 
 </body>
 </html>
