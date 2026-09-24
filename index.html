@@ -51,7 +51,7 @@
 
     @media (min-width: 600px) {
       .card-container {
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       }
     }
 
@@ -66,14 +66,13 @@
       justify-content: space-between;
     }
 
-    /* IMAGEM DA SKIN ENQUADRADA PERFEITAMENTE SEM CORTAR */
+    /* IMAGEM PREENCHENDO A LARGURA TOTAL SEM BORDAS PRETAS */
     .card img {
       width: 100%;
       height: auto;
-      max-height: 230px;
+      aspect-ratio: 1 / 1; /* Mantém a proporção quadrada perfeita da arte */
       border-radius: 8px;
-      object-fit: contain; /* Mostra a imagem inteira sem cortar nada */
-      background-color: #181818;
+      object-fit: cover;
       display: block;
     }
 
@@ -117,16 +116,13 @@
 
   <section class="gto-section">
 
-    <!-- TÍTULO PRINCIPAL (SEM O TEXTO/CAPA QUEBRADA DO TOPO) -->
     <div class="header-title">
       <h1>🚚 Skins Global Truck Online 🚗</h1>
       <p class="subtitulo">Baixe as melhores skins exclusivas para o seu jogo!</p>
     </div>
 
-    <!-- LISTA DE CARDS DE SKINS -->
     <main class="card-container">
       
-      <!-- CARD 1: SKIN GLOBAL TRUCK ONLINE -->
       <div class="card">
         <img src="file_00000000b0b481f4a3aefd4e65ee3799.png" alt="Skins Global Truck Online">
         <div class="card-content">
