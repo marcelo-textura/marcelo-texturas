@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Skins - Global Truck Online</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: #121212;
+      color: #ffffff;
+      padding-top: 15px;
+      padding-bottom: 30px;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 15px;
+    }
+
+    /* BOTÃO DE VOLTAR */
+    .btn-voltar {
+      display: inline-block;
+      color: #f39c12;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+
+    .header-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      color: #f39c12;
+      font-size: 1.5rem;
+      margin-bottom: 5px;
+    }
+
+    p.subtitulo {
+      color: #aaaaaa;
+      font-size: 0.9rem;
+    }
+
+    /* GALERIA DE SKINS */
+    .card-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+
+    @media (min-width: 600px) {
+      .card-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+    }
+
+    .card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid #2d2d2d;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 / 1;
+      border-radius: 8px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 12px 5px 5px 5px;
+      text-align: left;
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #ffffff;
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 0.85rem;
+      color: #bbbbbb;
+      margin-bottom: 15px;
+      line-height: 1.3;
+    }
+
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px 0;
+      background: #e67e22;
+      color: #ffffff;
+      text-align: center;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    .btn:active {
+      background: #d35400;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <a href="index.html" class="btn-voltar">← Voltar para o início</a>
+
+    <div class="header-title">
+      <h1>🚚 Skins Global Truck Online</h1>
+      <p class="subtitulo">Escolha e baixe sua skin favorita abaixo!</p>
+    </div>
+
+    <main class="card-container">
+      
+      <!-- SKIN 1 -->
+      <div class="card">
+        <img src="file_00000000b0b481f4a3aefd4e65ee3799.png" alt="Skin Scania Amarela">
+        <div class="card-content">
+          <h3>Skin Scania Amarela GTO</h3>
+          <p>Pintura amarela detalhada em alta resolução para Global Truck Online.</p>
+          <a href="#" class="btn">Baixar Skin</a>
+        </div>
+      </div>
+
+      <!-- SKIN 2 (EXEMPLO PARA QUANDO TIVER MAIS SKINS) -->
+      <!--
+      <div class="card">
+        <img src="NOME_DA_SUA_SKIN_2.png" alt="Skin 2">
+        <div class="card-content">
+          <h3>Skin Nome do Caminhão</h3>
+          <p>Descrição da skin.</p>
+          <a href="#" class="btn">Baixar Skin</a>
+        </div>
+      </div>
+      -->
+
+    </main>
+
+  </div>
+
+</body>
+</html>
